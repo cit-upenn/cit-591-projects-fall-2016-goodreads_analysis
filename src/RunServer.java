@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -40,12 +43,68 @@ public class RunServer {
 //        myReader.setContentHandler(null);
 //        myReader.parse(new InputSource(new URL("https://www.goodreads.com/review/show/161695047").openStream()));
         
+		// 
+        Document rev = Jsoup.connect("https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=Moby+Dick").get();
+		
+		System.out.println(rev.getElementsByTag("reviews_widget").toString());
+		
+		// match everything in quotes
+		Pattern matchWidget = Pattern.compile("\"(.*?)\"");
+		
+		// create matcher for to find the URL where that contains links to the content pages
+		Matcher m = matchWidget.matcher((CharSequence) rev.getElementsByTag("reviews_widget").toString());
+		
+		String bridgeURL = null;
+		
+		// Get the URL to find next link
+		while (m.find()) {
+			// if matched string contains the URL of the iframe (contains string "iframe"), store URL string and exit
+			if (m.group(1).contains("widget_iframe")) {
+				bridgeURL = m.group(1);
+				break;
+			}
+			
+		}
+		
+		// go to content link site
+		Document contentBridge = Jsoup.connect(bridgeURL).get();
+		
+		// get content id addresses 
+		// TODO make class name an instance variable
+		Elements bridges = contentBridge.getElementsByClass("gr_more_link");
+		
+		// make list for the review addresses
+		ArrayList<String> contentURLStrings = new ArrayList<>();
+		
+		// get Content URLs from href tags
+		for (Element elem : bridges) {
+			System.out.println(elem);
+			contentURLStrings.add( elem.attr("abs:href"));
+		}
+		
+		
+		ArrayList<String> content = new ArrayList<>();
+		Document contentDoc = null;
+		
+		for (String each : contentURLStrings) {
+			// connect to URl
+			contentDoc = Jsoup.connect(each).get();
+			
+			// get content element
+	        Elements review = contentDoc.getElementsByClass("reviewText mediumText description readable");
+	        
+	        // get content string
+	        content.add(review.get(0).text());
+		}
+		
+		
+		
+		
+
         
-        Document doc = Jsoup.connect("https://www.goodreads.com/review/show/161695047").get();
-        Elements review = doc.getElementsByClass("reviewText mediumText description readable");
         
-        for (Element elem: review ) {
-        	System.out.println(elem.text());
+        for (String each : content ) {
+        	System.out.println(each);
         }
         
         
@@ -54,11 +113,11 @@ public class RunServer {
 
 
 //		 Call the service and get the tone
-		ToneAnalysis tone = null;
-        for (Element elem: review ) {
-        	tone = service.getTone(elem.text(), null).execute();
-        }
-		System.out.println(tone.getDocumentTone());
+//		ToneAnalysis tone = null;
+//        for (Element elem: review ) {
+//        	tone = service.getTone(elem.text(), null).execute();
+//        }
+//		System.out.println(tone.getDocumentTone());
 		
 	}
 }

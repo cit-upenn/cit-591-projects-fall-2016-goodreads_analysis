@@ -6,20 +6,25 @@ import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 public class TextFinder {
-	private String widgetSourceURL;
+	private String bookName;
+	private String widgetSourceURLStub;
 	private String widgetFinder;
 	private Pattern matchWidget;
 	private ArrayList<String> textBodies;
 	
 	
 	
-	TextFinder() {
+	TextFinder(String bookName) {
 
+		
 		
         try {
 			Document doc = Jsoup.connect(this.widgetSourceURL).get();
+	        Elements widgetAddress = doc.getElementsByClass("reviewText mediumText description readable");
+
 			
 			
 		} catch (IOException e) {
