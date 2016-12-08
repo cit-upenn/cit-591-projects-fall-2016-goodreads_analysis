@@ -59,7 +59,7 @@ public class ToneCat {
 
 		// Call the service and get the tone
 		ToneAnalysis tone = service.getTone(text, null).execute();
-		System.out.println(tone);
+//		System.out.println(tone);
 		System.out.println(tone.getDocumentTone());
 	}
 
