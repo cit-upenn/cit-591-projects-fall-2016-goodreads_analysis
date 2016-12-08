@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
 
 public class ContentFinder {
 	private String searchinput;
-	private APIAccessor API;
+	private APICaller goodreadsAPI;
 	private String bridgeURL;
 	private String widgetFinder;
 	private Pattern matchWidget;
@@ -19,6 +19,7 @@ public class ContentFinder {
 	
 	
 	TextFinder(String bookName) {
+		
 
 		
 		

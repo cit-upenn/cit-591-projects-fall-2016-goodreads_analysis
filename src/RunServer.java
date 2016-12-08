@@ -46,25 +46,13 @@ public class RunServer {
 		// 
         Document rev = Jsoup.connect("https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=Moby+Dick").get();
 		
-		System.out.println(rev.getElementsByTag("reviews_widget").toString());
 		
-		// match everything in quotes
-		Pattern matchWidget = Pattern.compile("\"(.*?)\"");
+		Document now = Jsoup.parse(rev.getElementsByTag("reviews_widget").text());		
+
+		// get Bridge URL
+		String bridgeURL = now.getElementById("the_iframe").absUrl("src");
+		bridgeURL += bridgeURL + "&num_reviews=40";
 		
-		// create matcher for to find the URL where that contains links to the content pages
-		Matcher m = matchWidget.matcher((CharSequence) rev.getElementsByTag("reviews_widget").toString());
-		
-		String bridgeURL = null;
-		
-		// Get the URL to find next link
-		while (m.find()) {
-			// if matched string contains the URL of the iframe (contains string "iframe"), store URL string and exit
-			if (m.group(1).contains("widget_iframe")) {
-				bridgeURL = m.group(1);
-				break;
-			}
-			
-		}
 		
 		// go to content link site
 		Document contentBridge = Jsoup.connect(bridgeURL).get();
@@ -106,6 +94,7 @@ public class RunServer {
         for (String each : content ) {
         	System.out.println(each);
         }
+        System.out.println(content.size());
         
         
 		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
