@@ -43,6 +43,10 @@ public class RunServer {
 //        myReader.setContentHandler(null);
 //        myReader.parse(new InputSource(new URL("https://www.goodreads.com/review/show/161695047").openStream()));
         
+		
+		Servlet serve = new Servlet();
+		
+		
 		// 
         Document rev = Jsoup.connect("https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=Moby+Dick").get();
 		

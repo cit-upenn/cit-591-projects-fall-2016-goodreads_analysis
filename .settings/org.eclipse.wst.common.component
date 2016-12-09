@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="cit-591-projects-fall-2016-goodreads_analysis">
+        <wb-resource deploy-path="/" source-path="/src/ReviewToneWeb" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
+        <property name="context-root" value="cit-591-projects-fall-2016-goodreads_analysis"/>
+        <property name="java-output-path" value="/cit-591-projects-fall-2016-goodreads_analysis/bin"/>
+    </wb-module>
+</project-modules>
