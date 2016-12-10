@@ -1,9 +1,8 @@
 package API;
 
 
-
-
 public class GoodreadsAPI extends APICaller {
+	private String APIKey;
 	
 	
 	
