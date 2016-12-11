@@ -3,41 +3,41 @@ package watson;
 import com.ibm.watson.developer_cloud.tone_analyzer.*;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.*;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.*;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneCategory;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneScore;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions.Builder;
 
 import java.io.File;
 import java.util.List;
 
 public class ToneCat {
 
-	ToneAnalyzer service;
-	
-	public static String parseAndReturn(ToneAnalysis str) {
-		String returnStr = "";
 
-		ElementTone docTone = str.getDocumentTone();
-		returnStr += "";
-		{
-			List<ToneCategory> toneCatList = docTone.getTones();
-			for (ToneCategory toneCategory : toneCatList) {
-				returnStr += "\n\n\n<h3><i>" + toneCategory.getName() + "</i></h3><br/><table>";
-				List<ToneScore> toneList = toneCategory.getTones();
-				for (ToneScore toneScore : toneList) {
-					returnStr += "\n\n<tr>";
-					toneScore.getName();
-					Double d = toneScore.getScore() * 100;
-					String strDouble = String.format("%05.2f", d);
-					String name = String.format("%-16s", toneScore.getName());
-					returnStr += "\n<td>" + name + "</td>";
-					returnStr += "\t<td>" + strDouble + "%" + "</td></tr>";
-				}
-				returnStr += "</table></br>";
-			}
-		}
-		return returnStr;
-
-	}
+//	ToneAnalyzer service;
+//	
+//	public static String parseAndReturn(ToneAnalysis str) {
+//		String returnStr = "";
+//
+//		ElementTone docTone = str.getDocumentTone();
+//		returnStr += "";
+//		{
+//			List<ToneCategory> toneCatList = docTone.getTones();
+//			for (ToneCategory toneCategory : toneCatList) {
+//				returnStr += "\n\n\n<h3><i>" + toneCategory.getName() + "</i></h3><br/><table>";
+//				List<ToneScore> toneList = toneCategory.getTones();
+//				for (ToneScore toneScore : toneList) {
+//					returnStr += "\n\n<tr>";
+//					toneScore.getName();
+//					Double d = toneScore.getScore() * 100;
+//					String strDouble = String.format("%05.2f", d);
+//					String name = String.format("%-16s", toneScore.getName());
+//					returnStr += "\n<td>" + name + "</td>";
+//					returnStr += "\t<td>" + strDouble + "%" + "</td></tr>";
+//				}
+//				returnStr += "</table></br>";
+//			}
+//		}
+//		return returnStr;
+//
+//	}
 	
 	public static void main(String[] args){
 		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
@@ -57,10 +57,25 @@ public class ToneCat {
 		      + "Our clients are hungry for analytical tools to improve their "
 		      + "business outcomes. Economy has nothing to do with it.";
 
+		//experimenting with tone options
+		
+		
+		Tone emotions = Tone.EMOTION;
+		Builder toneBuilder = new Builder();
+		ToneOptions options = toneBuilder.addTone(emotions).build();
+		
+		
+		
 		// Call the service and get the tone
-		ToneAnalysis tone = service.getTone(text, null).execute();
+		ToneAnalysis tone = service.getTone(text, options).execute();
 //		System.out.println(tone);
 		System.out.println(tone.getDocumentTone());
+		
 	}
+
+private static void Builder() {
+	// TODO Auto-generated method stub
+	
+}
 
 }
