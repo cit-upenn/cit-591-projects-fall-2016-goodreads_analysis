@@ -43,73 +43,66 @@ public class RunServer {
 //        myReader.setContentHandler(null);
 //        myReader.parse(new InputSource(new URL("https://www.goodreads.com/review/show/161695047").openStream()));
         
-		// 
-        Document rev = Jsoup.connect("https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=Moby+Dick").get();
 		
-		System.out.println(rev.getElementsByTag("reviews_widget").toString());
-		
-		// match everything in quotes
-		Pattern matchWidget = Pattern.compile("\"(.*?)\"");
-		
-		// create matcher for to find the URL where that contains links to the content pages
-		Matcher m = matchWidget.matcher((CharSequence) rev.getElementsByTag("reviews_widget").toString());
-		
-		String bridgeURL = null;
-		
-		// Get the URL to find next link
-		while (m.find()) {
-			// if matched string contains the URL of the iframe (contains string "iframe"), store URL string and exit
-			if (m.group(1).contains("widget_iframe")) {
-				bridgeURL = m.group(1);
-				break;
-			}
-			
-		}
-		
-		// go to content link site
-		Document contentBridge = Jsoup.connect(bridgeURL).get();
-		
-		// get content id addresses 
-		// TODO make class name an instance variable
-		Elements bridges = contentBridge.getElementsByClass("gr_more_link");
-		
-		// make list for the review addresses
-		ArrayList<String> contentURLStrings = new ArrayList<>();
-		
-		// get Content URLs from href tags
-		for (Element elem : bridges) {
-			System.out.println(elem);
-			contentURLStrings.add( elem.attr("abs:href"));
-		}
-		
-		
-		ArrayList<String> content = new ArrayList<>();
-		Document contentDoc = null;
-		
-		for (String each : contentURLStrings) {
-			// connect to URl
-			contentDoc = Jsoup.connect(each).get();
-			
-			// get content element
-	        Elements review = contentDoc.getElementsByClass("reviewText mediumText description readable");
-	        
-	        // get content string
-	        content.add(review.get(0).text());
-		}
-		
-		
-		
-		
-
-        
-        
-        for (String each : content ) {
-        	System.out.println(each);
-        }
-        
-        
-		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
-		service.setUsernameAndPassword("92dc16f3-482d-46d0-9f83-4d7d223ad9b1", "vyWzY7PIs37e");
+//		Servlet serve = new Servlet();
+//		
+//		
+//		// 
+//        Document rev = Jsoup.connect("https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=Moby+Dick").get();
+//		
+//		
+//		Document now = Jsoup.parse(rev.getElementsByTag("reviews_widget").text());		
+//
+//		// get Bridge URL
+//		String bridgeURL = now.getElementById("the_iframe").absUrl("src");
+//		bridgeURL += bridgeURL + "&num_reviews=40";
+//		
+//		
+//		// go to content link site
+//		Document contentBridge = Jsoup.connect(bridgeURL).get();
+//		
+//		// get content id addresses 
+//		// TODO make class name an instance variable
+//		Elements bridges = contentBridge.getElementsByClass("gr_more_link");
+//		
+//		// make list for the review addresses
+//		ArrayList<String> contentURLStrings = new ArrayList<>();
+//		
+//		// get Content URLs from href tags
+//		for (Element elem : bridges) {
+//			System.out.println(elem);
+//			contentURLStrings.add( elem.attr("abs:href"));
+//		}
+//		
+//		
+//		ArrayList<String> content = new ArrayList<>();
+//		Document contentDoc = null;
+//		
+//		for (String each : contentURLStrings) {
+//			// connect to URl
+//			contentDoc = Jsoup.connect(each).get();
+//			
+//			// get content element
+//	        Elements review = contentDoc.getElementsByClass("reviewText mediumText description readable");
+//	        
+//	        // get content string
+//	        content.add(review.get(0).text());
+//		}
+//		
+//		
+//		
+//		
+//
+//        
+//        
+//        for (String each : content ) {
+//        	System.out.println(each);
+//        }
+//        System.out.println(content.size());
+//        
+//        
+//		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
+//		service.setUsernameAndPassword("92dc16f3-482d-46d0-9f83-4d7d223ad9b1", "vyWzY7PIs37e");
 
 
 //		 Call the service and get the tone
@@ -118,6 +111,19 @@ public class RunServer {
 //        	tone = service.getTone(elem.text(), null).execute();
 //        }
 //		System.out.println(tone.getDocumentTone());
+		
+		
+		
+		Document my = Jsoup.connect("http://www.isbnsearch.org/search?s=hello").get();
+		
+		System.out.println(my.text());
+		
+		Element href = my.getElementById("searchresults"); /*.child(0).attr("abs:href")*/
+		
+		System.out.println(href);
+		
+		
+		
 		
 	}
 }
