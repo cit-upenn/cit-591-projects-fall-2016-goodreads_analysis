@@ -2,10 +2,21 @@ package watson;
 
 import java.util.ArrayList;
 
+/**
+ * This is the Book class.
+ * It has a title and reviews of it. 
+ * It can return the emotional statistics of its reviews.
+ * @author carsonstack
+ *
+ */
 public class Book {
 	private String title;
 	private ArrayList<Review> reviews;
 	
+	/**
+	 * This is the constructor method.
+	 * @param title
+	 */
 	public Book(String title) {
 		this.title = title;
 		reviews = new ArrayList<Review>();

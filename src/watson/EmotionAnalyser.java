@@ -11,16 +11,18 @@ public class EmotionAnalyser {
 	private ToneAnalysis tone;
 	private ElementTone docTone;
 	
-	
+	/**
+	 * This is the constructor method.
+	 * It takes a string of text and creates a document tone.
+	 * @param text
+	 */
 	public EmotionAnalyser(String text) {
 		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
 		service.setUsernameAndPassword("92dc16f3-482d-46d0-9f83-4d7d223ad9b1", "vyWzY7PIs37e");
-
 		//set the tone options to only display emotions
 		Tone emotions = Tone.EMOTION;
 		Builder toneBuilder = new Builder();
 		ToneOptions options = toneBuilder.addTone(emotions).build();
-		
 		// Call the service and get the tone
 		tone = service.getTone(text, options).execute();
 		docTone = tone.getDocumentTone();

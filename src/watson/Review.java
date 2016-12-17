@@ -3,6 +3,12 @@ package watson;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ElementTone;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 
+/**
+ * This is the Review class.
+ * Each review has text, a tone, and individual emotion scores.
+ * @author carsonstack
+ *
+ */
 public class Review {
 	private String text;
 	private ElementTone tone;
@@ -12,6 +18,12 @@ public class Review {
 	private double joy;
 	private double sadness;
 	
+	
+	/**
+	 * This is the constructor method.
+	 * It takes in the text of the review and assigns emotional scores.
+	 * @param text
+	 */
 	public Review(String text) {
 		this.text = text;
 		EmotionAnalyser watson = new EmotionAnalyser(text);
