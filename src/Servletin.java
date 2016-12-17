@@ -11,26 +11,28 @@ public class Servletin extends  HttpServlet {
 			 			  HttpServletResponse response)
 			 			  throws ServletException, java.io.IOException {
 		 
-		 RequestDispatcher view = request.getRequestDispatcher("views/index.html");
-		 
-		 view.forward(request, response);
-		 
-		 
-		 
-//		 response.setContentType("views/index.html");
-//		 java.io.PrintWriter out = response.getWriter();
-//		 // output your page here
-//		 out.println("<html>");
-//		 out.println("<head>");
-//		 out.println("<title>Servlet</title>");
+//		 RequestDispatcher view = request.getRequestDispatcher("tester.html");
 //		 
-//		 int x = 6;
-//		 out.println("</head>");
-//		 out.println("<body>");
-//		 out.println("Hello, Java Servlets" + x);
-//		 out.println("</body>");
-//		 out.println("</html>");
-//		 out.close();
+//		 view.forward(request, response);
+		 
+		 
+		 response.setContentType("text/html");
+		 
+//		 response.sendRedirect("http://localhost:8080/HelloWorld/test");
+
+		 java.io.PrintWriter out = response.getWriter();
+		 // output your page here
+		 out.println("<html>");
+		 out.println("<head>");
+		 out.println("<title>Servlet</title>");
+		 
+		 int x = 6;
+		 out.println("</head>");
+		 out.println("<body>");
+		 out.println("Hello, Java Servlets" + x);
+		 out.println("</body>");
+		 out.println("</html>");
+		 out.close();
 	 }
 	 
 	 protected void doPost() {
