@@ -12,10 +12,15 @@ public class Tester {
 		Scanner in = new Scanner(System.in);
 		String response = in.nextLine();
 		
+		System.out.println("How many reviews would you like to be taken into consideration?");
+		int reviewCount = in.nextInt();
+		
+		
 		Book testBook = new Book(response);
 		
+		
 		try {
-			GoodReads gr = new GoodReads(testBook, 10);
+			GoodReads gr = new GoodReads(testBook, reviewCount);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
