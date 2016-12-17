@@ -15,7 +15,7 @@ public class Tester {
 		Book testBook = new Book(response);
 		
 		try {
-			GoodReads gr = new GoodReads(testBook);
+			GoodReads gr = new GoodReads(testBook, 10);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
