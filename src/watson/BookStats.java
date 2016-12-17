@@ -38,11 +38,11 @@ public class BookStats {
 			if(review.getSadness() > .4) sadnessHit++;
 			
 		}
-		percentAnger = ((double)angerHit / count);
-		percentDisgust = ((double)disgustHit / count);
-		percentFear = ((double)fearHit / count);
-		percentJoy = ((double)joyHit / count);
-		percentSadness = ((double)sadnessHit / count);
+		percentAnger = ((double)angerHit / count) * 100;
+		percentDisgust = ((double)disgustHit / count) * 100;
+		percentFear = ((double)fearHit / count) * 100;
+		percentJoy = ((double)joyHit / count) * 100;
+		percentSadness = ((double)sadnessHit / count) * 100;
 	}
 
 	/**
