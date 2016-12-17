@@ -6,8 +6,8 @@
 	<classpathentry kind="lib"
 		path="lib/java-sdk-3.5.1-jar-with-dependencies.jar" />
 	<classpathentry kind="lib" path="lib/jsoup-1.10.1.jar" />
-	<classpathentry kind="lib"
-		path="apache-tomcat-9.0.0.M13/lib/servlet-api.jar" />
+<!--	<classpathentry kind="lib"
+		path="apache-tomcat-9.0.0.M13/lib/servlet-api.jar" /> -->
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true" />
