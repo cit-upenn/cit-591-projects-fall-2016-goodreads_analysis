@@ -11,9 +11,11 @@ public class Servletin extends  HttpServlet {
 			 			  HttpServletResponse response)
 			 			  throws ServletException, java.io.IOException {
 		 
-		 RequestDispatcher view = request.getRequestDispatcher("html/mypage.html");
+		 RequestDispatcher view = request.getRequestDispatcher("views/index.html");
 		 
 		 view.forward(request, response);
+		 
+		 
 		 
 //		 response.setContentType("views/index.html");
 //		 java.io.PrintWriter out = response.getWriter();
