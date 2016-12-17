@@ -8,10 +8,25 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * This is the GoodReads class.
+ * It connects to the GoodReads API and stores the contents of the response.
+ * @author carsonstack
+ *
+ */
 public class GoodReads {
 	private final String API_BASE = "https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=";
 	private ArrayList<String> reviewContents;
 	
+	/**
+	 * This is the constructor method.
+	 * It builds a URL from the book title.
+	 * It calls the GoodReads API with that review.
+	 * It creates a GRParser to parse the response and a ReviewGenerator to create Reviews
+	 * @param book 
+	 * @param reviewCount the number of reviews to consider
+	 * @throws IOException
+	 */
 	public GoodReads(Book book, int reviewCount) throws IOException{
 		String url = buildUrl(book.getTitle());
 	
