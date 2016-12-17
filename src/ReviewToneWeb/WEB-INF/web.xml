@@ -4,14 +4,17 @@
     <servlet-name>Servletin</servlet-name>
     <servlet-class>Servletin</servlet-class>
   </servlet>
+  
   <servlet>
     <servlet-name>GetBookName</servlet-name>
     <servlet-class>GetBookName</servlet-class>
   </servlet>
+  
   <servlet-mapping>
     <servlet-name>Servletin</servlet-name>
     <url-pattern>/servlet</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>GetBookName</servlet-name>
     <url-pattern></url-pattern>
