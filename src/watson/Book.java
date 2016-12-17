@@ -8,6 +8,8 @@ public class Book {
 	
 	public Book(String title) {
 		this.title = title;
+		reviews = new ArrayList<Review>();
+		
 	}
 	
 	/**
@@ -31,6 +33,58 @@ public class Book {
 	public ArrayList<Review> getReviews() {
 		return reviews;
 	}
+	
+	public Double getAngerPercent(){
+		int count = 0;
+		int hit = 0;
+		for(Review review : reviews){
+			count++;
+			if(review.getAnger() > .5) hit++;			
+		}
+		return ((double)hit / count);
+	}
+	
+	public Double getDisgustPercent(){
+		int count = 0;
+		int hit = 0;
+		for(Review review : reviews){
+			count++;
+			if(review.getDisgust() > .5) hit++;			
+		}
+		return ((double)hit / count);
+	}
+	
+	public Double getFearPercent(){
+		int count = 0;
+		int hit = 0;
+		for(Review review : reviews){
+			count++;
+			if(review.getFear() > .5) hit++;			
+		}
+		return ((double)hit / count);
+	}
+	
+	public Double getJoyPercent(){
+		int count = 0;
+		int hit = 0;
+		for(Review review : reviews){
+			count++;
+			if(review.getJoy() > .5) hit++;			
+		}
+		return ((double)hit / count);
+	}
+	
+	public Double getSadnessPercent(){
+		int count = 0;
+		int hit = 0;
+		for(Review review : reviews){
+			count++;
+			if(review.getSadness() > .5) hit++;			
+		}
+		return ((double)hit / count);
+	}
+	
+	
 	
 	
 }
