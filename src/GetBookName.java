@@ -30,18 +30,28 @@ public class GetBookName extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		 RequestDispatcher view = request.getRequestDispatcher("/index.html");
-		 
+		 RequestDispatcher view = request.getRequestDispatcher("/postBookName.html");
+//		 RequestDispatcher view = request.getRequestDispatcher("/servlet");
+
 		 view.forward(request, response);
 
 	}
 
+	
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.sendRedirect("http://localhost:8080/watson/servlet");
+		
+		request.setAttribute("var", response);
+		getServletContext().getRequestDispatcher("/servlet").forward(request,response);
+		
+		
+		
+		
+//		response.sendRedirect("http://localhost:8080/watson/servlet");
 	}
 
 }
