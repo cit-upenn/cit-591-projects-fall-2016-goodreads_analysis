@@ -31,11 +31,11 @@ public class BookStats {
 		int sadnessHit = 0;
 		for(Review review : reviews){
 			count++;
-			if(review.getAnger() > .5) angerHit++;
-			if(review.getDisgust() > .5) disgustHit++;
-			if(review.getFear() > .5) fearHit++;
-			if(review.getJoy() > .5) joyHit++;
-			if(review.getSadness() > .5) sadnessHit++;
+			if(review.getAnger() > .4) angerHit++;
+			if(review.getDisgust() > .4) disgustHit++;
+			if(review.getFear() > .4) fearHit++;
+			if(review.getJoy() > .4) joyHit++;
+			if(review.getSadness() > .4) sadnessHit++;
 			
 		}
 		percentAnger = ((double)angerHit / count);
