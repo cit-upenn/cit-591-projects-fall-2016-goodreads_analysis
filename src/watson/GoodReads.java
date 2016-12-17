@@ -23,7 +23,7 @@ public class GoodReads {
 		
 		// get Bridge URL
 		String bridgeURL = now.getElementById("the_iframe").absUrl("src");
-		bridgeURL += bridgeURL + "&num_reviews=10";
+		bridgeURL += bridgeURL + "&num_reviews=30";
 		
 		// go to content link site
 		Document contentBridge = Jsoup.connect(bridgeURL).get();
