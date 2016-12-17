@@ -8,9 +8,22 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * This is the GRParser Class.
+ * 
+ * @author carsonstack
+ *
+ */
 public class GRParser {
 	ArrayList<String> content;
 
+	/**
+	 * This is the constructor method.
+	 * It takes the goodreads response and creates an arraylist made up of a string for each review
+	 * @param text The original response from the GoodRead API
+	 * @param reviewCount How many reviews to extract
+	 * @throws IOException
+	 */
 	public GRParser(Document text, int reviewCount) throws IOException{
 		
 		Document now = Jsoup.parse(text.getElementsByTag("reviews_widget").text());
@@ -49,6 +62,10 @@ public class GRParser {
 	
 	}
 	
+	/**
+	 * This is a getter method for the content parsed.
+	 * @return content
+	 */
 	public ArrayList<String> getContent(){
 		return content;
 	}
