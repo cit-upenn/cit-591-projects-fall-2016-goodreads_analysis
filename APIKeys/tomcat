@@ -1,2 +1,0 @@
-#!/bin/bash
-/usr/local/Cellar/tomcat/8.5.8/bin/catalina run

@@ -1,5 +1,6 @@
 package watson;
 
+import com.ibm.watson.developer_cloud.http.ServiceCall;
 import com.ibm.watson.developer_cloud.tone_analyzer.*;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.*;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.*;
@@ -58,18 +59,36 @@ public class ToneCat {
 		      + "business outcomes. Economy has nothing to do with it.";
 
 		//experimenting with tone options
-		
-		
 		Tone emotions = Tone.EMOTION;
 		Builder toneBuilder = new Builder();
-		ToneOptions options = toneBuilder.addTone(emotions).build();
+		ToneOptions options = toneBuilder.addTone(emotions).html(false).build();
 		
 		
 		
 		// Call the service and get the tone
 		ToneAnalysis tone = service.getTone(text, options).execute();
-//		System.out.println(tone);
-		System.out.println(tone.getDocumentTone());
+		ElementTone document = tone.getDocumentTone();
+		
+		String toneString = document.toString();
+		String singleLine = toneString.replaceAll("\\s+", "");
+		String [] strings = singleLine.split("}");
+		
+		String anger = strings[0].replaceAll("[^0-9.]", "");
+		String disgust = strings[1].replaceAll("[^0-9.]", "");
+		String fear = strings[2].replaceAll("[^0-9.]", "");
+		String joy = strings[3].replaceAll("[^0-9.]", "");
+		String sadness = strings[4].replaceAll("[^0-9.]", "");
+	    
+		
+
+		System.out.println(singleLine);
+		
+		System.out.println("anger: " + anger);
+		System.out.println("disgust: " + disgust);
+		System.out.println("fear: " + fear);
+		System.out.println("joy: " + joy);
+		System.out.println("sadness: " + sadness);
+
 		
 	}
 

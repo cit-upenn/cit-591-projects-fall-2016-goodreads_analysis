@@ -11,8 +11,6 @@ public interface APIAccess {
 	
 	/*
 	 * configures the API call for a given API 
-	 * 
-	 * @param string reresenting the parameters of the call
 	 */
 	public String configureAPICall(String parameters);
 	
