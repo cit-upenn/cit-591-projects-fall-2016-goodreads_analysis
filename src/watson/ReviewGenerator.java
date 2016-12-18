@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class ReviewGenerator {
 	
 	/**
-	 * This is the constructor method
+	 * This is the reviewLoader method
+	 * It takes in an array list of review contents and a book and creates each review for the book.
 	 * @param content an array of strings with review content
 	 * @param book the book to create reviews for
 	 */
