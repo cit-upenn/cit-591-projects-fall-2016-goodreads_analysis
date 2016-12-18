@@ -14,9 +14,9 @@ public class BookTest {
     Review review = new Review("the book is ok");
     Review review2 = new Review("the book is bad");
     Review review3 = new Review("the book is good");
+//    Review review4 = new Review("");
+//    Review review5 = new Review(null);
     ArrayList<Review> reviews = new ArrayList<Review>();
-    
-    
     ArrayList<Review> reviews1 = new ArrayList<Review>();
 
 
@@ -35,8 +35,17 @@ public class BookTest {
     @Test
     public final void testAddReview() {
         book.addReview(review);
-        assertEquals("Testing that review was added", book.getReviews(), "the book is ok");
+        reviews.add(review);
+        reviews1.add(review2);
+        assertEquals("Testing that review was added", book.getReviews(), reviews);
+        assertNotEquals("Testing that review wasn't added", book.getReviews(), reviews1);
+
+        reviews.add(review3);
+        book.addReview(review3);
+        assertEquals("Testing that review was added", book.getReviews(), reviews);
+//        assertEquals("testing that rewviews were added to")
         
+
     }
 
     @Test
@@ -54,7 +63,20 @@ public class BookTest {
 
     @Test
     public final void testGetReviews() {
-        fail("Not yet implemented"); // TODO
+        book.addReview(review);
+        book.addReview(review2);
+        book2.addReview(review3);
+        book2.addReview(review2);
+        reviews.add(review);
+        reviews.add(review2);
+        reviews1.add(review3);
+        reviews1.add(review2);
+        assertEquals("Test get reviews of book", book.getReviews(), reviews);
+        assertNotEquals("Test get reviews of book", book2.getReviews(), reviews);
+        assertEquals("Test get reviews of book2", book2.getReviews(), reviews1);
+        assertNotEquals("Test get reviews of book", book.getReviews(), reviews1);
+
+
     }
 
 }
