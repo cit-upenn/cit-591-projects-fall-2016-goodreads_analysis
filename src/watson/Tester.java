@@ -22,7 +22,7 @@ public class Tester {
 		
 		
 		try {
-			GoodReads gr = new GoodReads(testBook, reviewCount);
+			GoodReadsAPI gr = new GoodReadsAPI(testBook, reviewCount);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
