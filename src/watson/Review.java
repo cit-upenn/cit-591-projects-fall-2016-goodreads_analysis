@@ -26,6 +26,7 @@ public class Review {
 	 */
 	public Review(String text) {
 		this.text = text;
+		this.tone = null;
 	}
 	
 	

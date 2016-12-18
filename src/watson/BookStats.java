@@ -33,6 +33,7 @@ public class BookStats {
 		
 	}
 	
+	
 	public void generateFullEmotionReport() {
 		ArrayList<Review> reviews = book.getReviews();
 		
@@ -44,6 +45,7 @@ public class BookStats {
 		int sadnessHit = 0;
 		
 		for(Review review : reviews){
+			review.setTone();
 			analyzedReviews++;
 			if(review.getAnger() > .4) angerHit++;
 			if(review.getDisgust() > .4) disgustHit++;
@@ -52,7 +54,6 @@ public class BookStats {
 			if(review.getSadness() > .4) sadnessHit++;
 			
 		}
-		
 		
 		percentAnger = ((double)angerHit / analyzedReviews) * 100;
 		percentDisgust = ((double)disgustHit / analyzedReviews) * 100;

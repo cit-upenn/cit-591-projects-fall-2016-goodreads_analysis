@@ -8,8 +8,20 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions.Builder;
 
 public class EmotionAnalyser {
+	private static ToneAnalyzer service;
+
 //	private ToneAnalysis tone;
 //	private ElementTone docTone;
+	
+	EmotionAnalyser() {
+		// initialize analyzer
+		this.service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
+		
+		// set api keys
+		service.setUsernameAndPassword("92dc16f3-482d-46d0-9f83-4d7d223ad9b1", "vyWzY7PIs37e");
+
+	}
+	
 	
 	/**
 	 * This is a static method.
@@ -17,8 +29,6 @@ public class EmotionAnalyser {
 	 * @param text
 	 */
 	public static ElementTone toneGenerator(String text) {
-		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
-		service.setUsernameAndPassword("92dc16f3-482d-46d0-9f83-4d7d223ad9b1", "vyWzY7PIs37e");
 		//set the tone options to only display emotions
 		Tone emotions = Tone.EMOTION;
 		Builder toneBuilder = new Builder();
