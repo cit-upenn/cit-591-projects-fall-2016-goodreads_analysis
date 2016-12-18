@@ -1,10 +1,6 @@
 package watson;
 
 import java.util.ArrayList;
-
-import com.google.gson.JsonArray;
-
-
 /**
  * This is the BookStats class.
  * It determines the percentage of each emotion present in a book's reviews.
@@ -13,7 +9,7 @@ import com.google.gson.JsonArray;
  */
 public class BookStats {
 	private Book book;
-	private JsonArray JsonEmotions;
+	private double[] emotions;
 	private double percentAnger;
 	private double percentDisgust;
 	private double percentFear;
@@ -30,6 +26,7 @@ public class BookStats {
 	 */
 	public BookStats(Book book){
 		this.book = book;
+		emotions = new double[5];
 		
 		analyzedReviews = 0;
 		analysisComplete = false;
@@ -48,19 +45,13 @@ public class BookStats {
 		int joyHit = 0;
 		int sadnessHit = 0;
 		
-		
 		for(Review review : reviews){
-			double currentAnger = review.getAnger();
-			double currentDisgust = review.getDisgust();
-			double currentFear = review.getFear();
-			double currentJoy = review.getJoy();
-			double currentSadness = review.getSadness();
 			analyzedReviews++;
-			if(currentAnger > .4) angerHit++;
-			if(currentDisgust > .4) disgustHit++;
-			if(currentFear > .4) fearHit++;
-			if(currentJoy > .4) joyHit++;
-			if(currentSadness > .4) sadnessHit++;
+			if(review.getAnger() > .4) angerHit++;
+			if(review.getDisgust() > .4) disgustHit++;
+			if(review.getFear() > .4) fearHit++;
+			if(review.getJoy() > .4) joyHit++;
+			if(review.getSadness() > .4) sadnessHit++;
 			
 		}
 		
@@ -71,14 +62,13 @@ public class BookStats {
 		percentJoy = ((double)joyHit / analyzedReviews) * 100;
 		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
 		
-		JsonArray JsonEmotions = new JsonArray();
-
-		JsonEmotions.add(percentAnger);
-		JsonEmotions.add(percentDisgust);
-		JsonEmotions.add(percentFear);
-		JsonEmotions.add(percentJoy);
-		JsonEmotions.add(percentSadness);
-
+		
+		emotions[0] = percentAnger;
+		emotions[1] = percentDisgust;
+		emotions[2] = percentFear;
+		emotions[3] = percentJoy;
+		emotions[4] = percentSadness;
+		
 		this.analysisComplete = true;
 	}
 
@@ -120,16 +110,10 @@ public class BookStats {
 	/**
 	 * @return the emotions
 	 */
-	public JsonArray getEmotions() {
-		return JsonEmotions;
+	public double[] getEmotions() {
+		return emotions;
 	}
 	
-	/**
-	 * print the emotions
-	 */
-	public void printEmotions() {
-		System.out.println(this.JsonEmotions);
-	}
 	
 	
 
