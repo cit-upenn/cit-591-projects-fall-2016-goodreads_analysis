@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 public class BookTest {
+    
     Book book = new Book("Moby Dick"); 
     Book book2 = new Book("");
     Book book3 = new Book("12345");
-    Review review = new Review("");
+    Review review = new Review("the book is ok");
     Review review2 = new Review("the book is bad");
     Review review3 = new Review("the book is good");
     ArrayList<Review> reviews = new ArrayList<Review>();
+    
+    
     ArrayList<Review> reviews1 = new ArrayList<Review>();
 
 
@@ -32,19 +35,7 @@ public class BookTest {
     @Test
     public final void testAddReview() {
         book.addReview(review);
-        book.addReview(review2);
-        
-        reviews.add(review);
-        reviews.add(review2);
-        
-        
-        reviews.add(review3);
-        
-        reviews1.add(review);
-        reviews1.add(review2);
-        
-        assertEquals("", book.getReviews(), reviews1);
-        assertNotEquals("", book.getReviews(), reviews);
+        assertEquals("Testing that review was added", book.getReviews(), "the book is ok");
         
     }
 
