@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class BookStatsTest {
@@ -104,36 +105,88 @@ public class BookStatsTest {
     @Test
     public final void testGetPercentAnger() {
         Book book = new Book("");
-        Review review1 = new Review("abc");
-        double currentAnger = 0.5;
+        BookStats stats = new BookStats(book);
+        
+        double angerHit = 1;
+        double analyzedReviews = 2;
 
-        double[] emotions = { 1, 2, 3, 4, 5 };
+        stats.setPercentAnger(((double) angerHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentAnger(), 50, 0.00);
 
     }
 
     @Test
     public final void testGetPercentDisgust() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double disgustHit = 1;
+        double analyzedReviews = 2;
+
+        stats.setPercentDisgust(((double) disgustHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentDisgust(), 50, 0.00);
+
     }
 
     @Test
     public final void testGetPercentFear() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double fearHit = 1;
+        double analyzedReviews = 5;
+
+        stats.setPercentFear(((double) fearHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentFear(), 20, 0.00);
+        
     }
 
     @Test
     public final void testGetPercentJoy() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double joyHit = 1;
+        double analyzedReviews = 2;
+
+        stats.setPercentJoy(((double) joyHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentJoy(), 50, 0.00);
     }
 
     @Test
     public final void testGetPercentSadness() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double sadnessHit = 1;
+        double analyzedReviews = 10;
+
+        stats.setPercentSadness(((double) sadnessHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentSadness(), 10, 0.00);
     }
 
     @Test
     public final void testGetEmotions() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        double[] emotions = new double[5];
+        stats.setEmotions(emotions);
+        emotions[0] = percentAnger;
+        emotions[1] = percentDisgust;
+        emotions[2] = percentFear;
+        emotions[3] = percentJoy;
+        emotions[4] = percentSadness;
+        
+        double[] emotions2 = {1, 2, 3, 4, 5};        
+      
+
+        Assert.assertArrayEquals(stats.getEmotions(), emotions2, 0.00);
+        
     }
 
 }

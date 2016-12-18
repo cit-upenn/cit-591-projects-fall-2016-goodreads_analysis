@@ -80,4 +80,40 @@ public class Review {
 		return sadness;
 	}
 
+
+
+
+    public void setAnger(double anger) {
+        this.anger = anger;
+    }
+
+
+
+
+    public void setDisgust(double disgust) {
+        this.disgust = disgust;
+    }
+
+
+
+
+    public void setFear(double fear) {
+        this.fear = fear;
+    }
+
+
+
+
+    public void setJoy(double joy) {
+        this.joy = joy;
+    }
+
+
+
+
+    public void setSadness(double sadness) {
+        this.sadness = sadness;
+    }
+	
+
 }

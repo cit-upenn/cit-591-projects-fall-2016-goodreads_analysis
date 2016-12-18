@@ -35,7 +35,9 @@ public class BookStats {
 		
 	}
 	
-	public void getFullEmotionReport() {
+
+
+    public void getFullEmotionReport() {
 		ArrayList<Review> reviews = book.getReviews();
 		
 		int analyzedReviews = 0;
@@ -56,11 +58,15 @@ public class BookStats {
 		}
 		
 		
-		percentAnger = ((double)angerHit / analyzedReviews) * 100;
-		percentDisgust = ((double)disgustHit / analyzedReviews) * 100;
-		percentFear = ((double)fearHit / analyzedReviews) * 100;
-		percentJoy = ((double)joyHit / analyzedReviews) * 100;
-		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
+		setPercentAnger(( (double)angerHit / analyzedReviews) * 100);
+		setPercentDisgust(((double)disgustHit / analyzedReviews) * 100);
+		setPercentFear(((double)fearHit / analyzedReviews) * 100);
+		setPercentJoy(((double)joyHit / analyzedReviews) * 100);
+		setPercentSadness(((double)sadnessHit / analyzedReviews) * 100);
+//		percentDisgust = ((double)disgustHit / analyzedReviews) * 100;
+//		percentFear = ((double)fearHit / analyzedReviews) * 100;
+//		percentJoy = ((double)joyHit / analyzedReviews) * 100;
+//		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
 		
 		
 		emotions[0] = percentAnger;
@@ -114,6 +120,31 @@ public class BookStats {
 		return emotions;
 	}
 	
+	   public void setPercentAnger(double percentAnger) {
+	        this.percentAnger = percentAnger;
+	    }
+
+	    public void setPercentDisgust(double percentDisgust) {
+	        this.percentDisgust = percentDisgust;
+	    }
+
+	    public void setPercentFear(double percentFear) {
+	        this.percentFear = percentFear;
+	    }
+
+	    public void setPercentJoy(double percentJoy) {
+	        this.percentJoy = percentJoy;
+	    }
+
+	    public void setPercentSadness(double percentSadness) {
+	        this.percentSadness = percentSadness;
+	    }
+
+
+
+        public void setEmotions(double[] emotions) {
+            this.emotions = emotions;
+        }
 	
 	
 
