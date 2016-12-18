@@ -58,7 +58,6 @@ public class Servletin extends  HttpServlet {
 		
 		 RequestDispatcher view = request.getRequestDispatcher("/graph.jsp");
 		 
-		 request.getAsyncContext()
 		
 		 JsonArray values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
 		 
@@ -67,21 +66,6 @@ public class Servletin extends  HttpServlet {
 		 view.forward(request, response);
 		 
 		 
-		 
-//		 response.setContentType("text/html");
-//		 java.io.PrintWriter out = response.getWriter();
-//		 // output your page here
-//		 out.println("<html>");
-//		 out.println("<head>");
-//		 out.println("<title>Servlet</title>");
-//		 Object y = request.getAttribute("var");
-//		 int x = 6;
-//		 out.println("</head>");
-//		 out.println("<body>");
-//		 out.println("Hello, Java Servlets trying hard" + x + y);
-//		 out.println("</body>");
-//		 out.println("</html>");
-//		 out.close();
 	 }
 	 
 }

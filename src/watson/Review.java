@@ -26,8 +26,7 @@ public class Review {
 	 */
 	public Review(String text) {
 		this.text = text;
-		EmotionAnalyser watson = new EmotionAnalyser(text);
-		tone = watson.getDocTone();
+		tone = EmotionAnalyser.toneGenerator(text);
 		ToneParser tp = new ToneParser(tone);
 		anger = tp.returnAnger();
 		disgust = tp.returnDisgust();
@@ -35,6 +34,8 @@ public class Review {
 		joy = tp.returnJoy();
 		sadness = tp.returnSadness();
 	}
+	
+	
 
 	/**
 	 * @return the text
