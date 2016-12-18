@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class Book {
 	private String title;
+	private String author;
 	private ArrayList<Review> reviews;
 	
 	/**
@@ -44,5 +45,27 @@ public class Book {
 		return reviews;
 	}
 	
+	/**
+	 * setter for the title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/**
+	 * setter for the author
+	 */
+	public void setAuthor(String name) {
+		this.author = name;
+	}
+	
+	/**
+	 * getter for the author
+	 * 
+	 * @return author name
+	 */
+	public String getAuthor() {
+		return this.author;
+	}
 	
 }

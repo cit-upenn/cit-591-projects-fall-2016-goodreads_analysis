@@ -14,7 +14,9 @@ import org.jsoup.select.Elements;
  * @author carsonstack
  */
 public class GRParser {
-	ArrayList<String> content;
+	public ArrayList<String> content;
+	public String Title;
+	public String Author;
 
 	/**
 	 * This is the constructor method.
@@ -26,6 +28,11 @@ public class GRParser {
 	public GRParser(Document text, int reviewCount) throws IOException{
 		
 		Document now = Jsoup.parse(text.getElementsByTag("reviews_widget").text());
+		
+		Title = text.getElementsByTag("title").get(0).text();
+		
+		Author = text.getElementsByTag("name").get(0).text();
+		
 		
 		// get Bridge URL
 		String bridgeURL = now.getElementById("the_iframe").absUrl("src");

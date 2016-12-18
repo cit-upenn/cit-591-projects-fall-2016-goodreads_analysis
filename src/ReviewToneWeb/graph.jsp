@@ -1,28 +1,26 @@
 <%@ page import="watson.BookStats" %>
 
-<%
-	BookStats bookReport = (BookStats) request.getAttribute("emotions");
-	if (bookReport == null) {
-		response.sendRedirect("");  
-	}
-%>
+
 
 <head>
-  <title>HTML5 Bar Graph Example</title>
+  <title>See the Emotions!</title>
   <script src="js/barGraph.js"></script>
+  <script src="js/scripts.js"></script>
 </head>
 
-<body>
-
+<body id="myBody">
 	
-	
-	<form id="submitBook" action="" method="post">
+	<form id="submitBook" onsubmit="myFunction();"  action="" method="post">
 	  	Enter another book to search!: 
   		<input type="text" name="bookname"><br>
   		Number of Reviews (max 20): <input type="number" min="0" value="5" max="20" name="reviewcount"><br>
-  		<input type=submit>
+  		<input id="submitButton" type=submit>
   	</form>
 	<br>
+	
+	Showing results for: ${emotions.getBook().getTitle()}
+	<br>
+	By: ${emotions.getBook().getAuthor()}
 	
   <div id="graphs">
   <div id = graphDiv1></div>
@@ -51,7 +49,7 @@
 	    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
 
   
-	    graph.update();
+	    graph.update(${emotionJson});
 	    
 	    
   
