@@ -8,7 +8,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import API.APICaller;
 
 /**
  * This is the GoodReads class.
@@ -55,12 +54,12 @@ public class GoodReadsAPI {
 		String[] words = title.split("\\s+");
 	
 		StringBuilder url = new StringBuilder(API_BASE);
-			for (String word : words) { 
-				url.append(word + "+"); 
-				}
-			url.setLength(url.length() - 1);
-			return url.toString();
-			}
+		for (String word : words) { 
+			url.append(word + "+"); 
+		}
+		url.setLength(url.length() - 1);
+		return url.toString();
+	}
 
 
 

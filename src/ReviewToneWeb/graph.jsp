@@ -14,7 +14,7 @@
 
 <body>
 
-	
+	${emotionJson} 
 	
 	<form id="submitBook" action="" method="post">
 	  	Enter another book to search!: 
@@ -51,7 +51,7 @@
 	    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
 
   
-	    graph.update();
+	    graph.update(${emotionJson});
 	    
 	    
   
