@@ -31,9 +31,11 @@ public class BookStats {
 		analyzedReviews = 0;
 		analysisComplete = false;
 		
+		this.getFullEmotionReport();
+		
 	}
 	
-	public void getEmotionReport() {
+	public void getFullEmotionReport() {
 		ArrayList<Review> reviews = book.getReviews();
 		
 		int analyzedReviews = 0;
@@ -64,6 +66,8 @@ public class BookStats {
 		emotions[2] = percentFear;
 		emotions[3] = percentJoy;
 		emotions[4] = percentSadness;
+		
+		this.analysisComplete = true;
 	}
 
 	/**

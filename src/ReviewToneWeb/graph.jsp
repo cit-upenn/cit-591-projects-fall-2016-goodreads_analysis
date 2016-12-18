@@ -4,20 +4,20 @@
 </head>
 
 <body>
-	<%
-	out.println("Your IP address is " + request.getRemoteAddr());
-	%>
+	<form id="submitBook" action="GetBookName" method="post">
+	  	Book Title (ex: Mobey Dick): 
+  		<input type="text" name="bookname"><br>
+  		Number of Reviews (max 20): <input type="number" min="0" value="5" max="20" name="reviewcount"><br>
+  		<input type=submit>
+  	</form>
+	
+	
   <div id="graphs">
   <div id = graphDiv1></div>
   </div>
   <script src="js/barGraph.js"></script>
   <script>(function () {
-	  var makeGraphs = "";
-	  
-	  
-/* 	  for (var i = 0 ; i < 4; i++) {
-		  makeGraphs += "<div id=\"graphDiv" + i + "\"></div>";
-	  } */
+	 
 	  
   
     function createCanvas(divName) {
