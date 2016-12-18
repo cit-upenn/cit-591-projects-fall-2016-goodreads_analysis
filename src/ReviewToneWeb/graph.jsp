@@ -39,7 +39,7 @@
 	    graph.margin = 2;
 	    graph.colors = ["#007300", "#ff0000", "#007300", "#ff0000", "#007300"];
 	    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
-	    graph.update(<% out.print(request.getAttribute("emotions"));  %>);
+	    graph.update(${Array.toString(emotions.getEomtions())});
   
   
   

@@ -1,6 +1,7 @@
 package watson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * This is the BookStats class.
  * It determines the percentage of each emotion present in a book's reviews.
@@ -60,6 +61,8 @@ public class BookStats {
 		percentFear = ((double)fearHit / analyzedReviews) * 100;
 		percentJoy = ((double)joyHit / analyzedReviews) * 100;
 		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
+		
+		
 		emotions[0] = percentAnger;
 		emotions[1] = percentDisgust;
 		emotions[2] = percentFear;
@@ -115,7 +118,9 @@ public class BookStats {
 	}
 	
 	
-	
+	public String reportStats() {
+		return Arrays.toString(this.emotions);
+	}
 
 	
 	

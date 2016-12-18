@@ -15,6 +15,8 @@ import watson.*;
 
 
 public class Servletin extends  HttpServlet {
+	
+	private BookStats report;
 	 /** Handle the HTTP <code>GET</code> method.
 	 * @param request servlet request
 	 * @param response servlet response
@@ -59,7 +61,9 @@ public class Servletin extends  HttpServlet {
 		 RequestDispatcher view = request.getRequestDispatcher("/graph.jsp");
 		 
 		 
-		 JsonArray values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
+		 BookStats values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
+		 
+		 this.report = values;
 		 
 		 request.setAttribute("emotions", values);
 		 

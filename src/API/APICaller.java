@@ -4,30 +4,14 @@ public abstract class APICaller implements APIAccess {
 	
 	private final String APIKey;
 	private final String APIName;
-	private final String APIURLBase;
+	private final String API_Base;
 	
 	
 	public APICaller() {
-		
+		APIKey = null;
+		APIName = null;
+		API_Base = null;
 	}
-	
-	
-	
-	
-	
-	
-	/*
-	 * makes an 
-	 */
-	private String finalizeAPIcall(String callConfig) {
-		return APIURLBase + callConfig;
-	}
-	
-	
-	
-	
-	
-	
 	
 	
 }
