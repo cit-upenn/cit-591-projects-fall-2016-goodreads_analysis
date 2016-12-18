@@ -31,6 +31,8 @@ public class GoodReadsAPI {
 	 */
 	public GoodReadsAPI(Book book, int reviewCount) throws IOException{
 		
+		
+		
 		String url = buildUrl(book.getTitle());
 	
 		Document response = Jsoup.connect(url).get();
