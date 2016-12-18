@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 public class Book {
 	private String title;
-	private String Author;
 	private ArrayList<Review> reviews;
 	
 	/**
@@ -44,10 +43,6 @@ public class Book {
 	public ArrayList<Review> getReviews() {
 		return reviews;
 	}
-	
-
-
-	
 	
 	
 }
