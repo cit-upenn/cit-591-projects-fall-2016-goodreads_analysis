@@ -12,7 +12,6 @@ import org.jsoup.select.Elements;
  * This is the GRParser Class.
  * It parses the goodreads response into individual strings of reviews
  * @author carsonstack
- *
  */
 public class GRParser {
 	ArrayList<String> content;

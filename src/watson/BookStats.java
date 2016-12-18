@@ -23,7 +23,7 @@ public class BookStats {
 	 */
 	public BookStats(Book book){
 		this.book = book;
-		emotions = new double[4];
+		emotions = new double[5];
 		ArrayList<Review> reviews = book.getReviews();
 		int count = 0;
 		int angerHit = 0;
