@@ -40,6 +40,11 @@ public class GoodReadsAPI {
 		
 		reviewContents = parser.getContent();
 		
+		// set author and title of book to the book found with search
+		book.setAuthor(parser.Author);
+		book.setTitle(parser.Title);
+	
+		
 		ReviewGenerator.reviewLoader(reviewContents, book);
 		
 	}

@@ -1,11 +1,6 @@
 <%@ page import="watson.BookStats" %>
 
-<%
-	BookStats bookReport = (BookStats) request.getAttribute("emotions");
-	if (bookReport == null) {
-		response.sendRedirect("");  
-	}
-%>
+
 
 <head>
   <title>See the Emotions!</title>
@@ -13,7 +8,7 @@
   <script src="js/scripts.js"></script>
 </head>
 
-<body id="myBook">
+<body id="myBody">
 	
 	<form id="submitBook" onsubmit="myFunction();"  action="" method="post">
 	  	Enter another book to search!: 

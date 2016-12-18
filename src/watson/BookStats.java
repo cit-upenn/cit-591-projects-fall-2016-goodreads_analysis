@@ -115,8 +115,14 @@ public class BookStats {
 	}
 	
 	
-	
-
+	/*
+	 * getter for the book object
+	 * 
+	 * @return book
+	 */
+	public Book getBook() {
+		return this.book;
+	}
 	
 	
 }
