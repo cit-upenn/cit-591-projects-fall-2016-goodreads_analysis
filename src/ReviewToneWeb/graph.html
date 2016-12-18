@@ -4,9 +4,18 @@
 </head>
 
 <body>
-  <div id="graphDiv1"></div>
+  <div id="graphs">
+  </div>
   <script src="js/barGraph.js"></script>
   <script>(function () {
+	  var makeGraphs = "";
+	  
+	  
+	  for (var i = 0 ; i < 4; i++) {
+		  makeGraphs += "<div id=\"graphDiv" + i + "\"></div>";
+	  }
+	  
+	  document.getElementById("graphs").innerHTML = makeGraphs;
   
     function createCanvas(divName) {
       
@@ -19,16 +28,23 @@
       var ctx = canvas.getContext("2d");
       return ctx;
     }
-    
-    var ctx = createCanvas("graphDiv1");
-    
-    var graph = new BarGraph(ctx);
-    graph.maxValue = 100;
-    graph.margin = 2;
-    graph.colors = ["#007300", "#ff0000", "#007300", "#ff0000", "#007300"];
-    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
-    graph.update([10.25, 33, 0, 50, 50]);
-  }());</script>
+	  
+    for (var i = 0; i < 4; i++) {
+	    var ctx = createCanvas(("graphDiv" + i));
+	    
+	    var graph = new BarGraph(ctx);
+	    graph.maxValue = 100;
+	    graph.margin = 2;
+	    graph.colors = ["#007300", "#ff0000", "#007300", "#ff0000", "#007300"];
+	    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
+	    graph.update([10.25, 33, 0, 50, 50]);
+  }
+  
+  
+  
+  }());
+  	</script>
+  
 </body>
 </html>
 
