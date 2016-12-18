@@ -45,6 +45,8 @@ public class GetBookName extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// get the user input book name
 		request.setAttribute("var", request.getParameter("bookname"));
+		request.setAttribute("reviewCount", request.getParameter("reviewcount"));
+
 		
 		//go forward to the second servlet
 		getServletContext().getRequestDispatcher("/servlet").forward(request,response);

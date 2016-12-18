@@ -19,7 +19,6 @@
 		  makeGraphs += "<div id=\"graphDiv" + i + "\"></div>";
 	  } */
 	  
-	  document.getElementById("graphs").innerHTML = makeGraphs;
   
     function createCanvas(divName) {
       
@@ -40,7 +39,7 @@
 	    graph.margin = 2;
 	    graph.colors = ["#007300", "#ff0000", "#007300", "#ff0000", "#007300"];
 	    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
-	    graph.update(<% out.println(request.getParameter("emotions").toString());  %>);
+	    graph.update(<% out.print(request.getAttribute("emotions"));  %>);
   
   
   

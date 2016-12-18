@@ -9,6 +9,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.google.gson.JsonArray;
+
 import watson.*;
 
 
@@ -58,7 +60,7 @@ public class Servletin extends  HttpServlet {
 		 
 		 
 		
-		 double[] values = GRReviewFactory.getReviews((String) request.getAttribute("var"), 5);
+		 JsonArray values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
 		 
 		 request.setAttribute("emotions", values);
 		 
