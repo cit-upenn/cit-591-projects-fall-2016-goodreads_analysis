@@ -45,13 +45,19 @@ public class BookStats {
 		int joyHit = 0;
 		int sadnessHit = 0;
 		
+		
 		for(Review review : reviews){
+			double currentAnger = review.getAnger();
+			double currentDisgust = review.getDisgust();
+			double currentFear = review.getFear();
+			double currentJoy = review.getJoy();
+			double currentSadness = review.getSadness();
 			analyzedReviews++;
-			if(review.getAnger() > .4) angerHit++;
-			if(review.getDisgust() > .4) disgustHit++;
-			if(review.getFear() > .4) fearHit++;
-			if(review.getJoy() > .4) joyHit++;
-			if(review.getSadness() > .4) sadnessHit++;
+			if(currentAnger > .4) angerHit++;
+			if(currentDisgust > .4) disgustHit++;
+			if(currentFear > .4) fearHit++;
+			if(currentJoy > .4) joyHit++;
+			if(currentSadness > .4) sadnessHit++;
 			
 		}
 		
