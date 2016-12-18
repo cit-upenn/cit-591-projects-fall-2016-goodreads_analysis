@@ -36,7 +36,7 @@ public class GoodReads {
 		
 		reviewContents = parser.getContent();
 		
-		ReviewGenerator rg = new ReviewGenerator(reviewContents, book);
+		ReviewGenerator.reviewLoader(reviewContents, book);
 		
 	}
 	

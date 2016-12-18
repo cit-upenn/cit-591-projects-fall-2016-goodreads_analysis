@@ -58,7 +58,7 @@ public class Servletin extends  HttpServlet {
 		
 		 RequestDispatcher view = request.getRequestDispatcher("/graph.jsp");
 		 
-		 
+		 request.getAsyncContext()
 		
 		 JsonArray values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
 		 
