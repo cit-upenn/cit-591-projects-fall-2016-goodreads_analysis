@@ -15,7 +15,7 @@ public class GRReviewFactory {
 		//create book
 		Book book = new Book(bookName);
 		
-		GoodReads gr = new GoodReads(book, reviewCount);
+		GoodReadsAPI gr = new GoodReadsAPI(book, reviewCount);
 
 		
 		//create BookStat object and return the array of emotion scores

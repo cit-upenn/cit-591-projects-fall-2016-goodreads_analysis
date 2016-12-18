@@ -9,7 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class GRReviewLinks implements URLBridgeList {
-	private String contentClassName;
+	private static String contentClassName;
 	
 	public GRReviewLinks () {
 		this.contentClassName = "gr_more_link";

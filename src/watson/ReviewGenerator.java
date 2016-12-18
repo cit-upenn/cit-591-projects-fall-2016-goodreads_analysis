@@ -11,11 +11,12 @@ import java.util.ArrayList;
 public class ReviewGenerator {
 	
 	/**
-	 * This is the constructor method
+	 * This is the reviewLoader method
+	 * It takes in an array list of review contents and a book and creates each review for the book.
 	 * @param content an array of strings with review content
 	 * @param book the book to create reviews for
 	 */
-	public ReviewGenerator(ArrayList<String> content, Book book){
+	public static void reviewLoader(ArrayList<String> content, Book book){
 		for (String each : content ) {
         	Review review = new Review(each);
         	book.addReview(review);

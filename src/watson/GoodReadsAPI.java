@@ -8,14 +8,16 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import API.APICaller;
+
 /**
  * This is the GoodReads class.
  * It connects to the GoodReads API and stores the contents of the response.
  * @author carsonstack
  *
  */
-public class GoodReads {
-	private final String API_BASE = "https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=";
+public class GoodReadsAPI extends APICaller {
+	private static final String API_BASE = "https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=";
 	private ArrayList<String> reviewContents;
 	
 	/**
@@ -27,7 +29,7 @@ public class GoodReads {
 	 * @param reviewCount the number of reviews to consider
 	 * @throws IOException
 	 */
-	public GoodReads(Book book, int reviewCount) throws IOException{
+	public GoodReadsAPI(Book book, int reviewCount) throws IOException{
 		String url = buildUrl(book.getTitle());
 	
 		Document response = Jsoup.connect(url).get();
@@ -36,7 +38,7 @@ public class GoodReads {
 		
 		reviewContents = parser.getContent();
 		
-		ReviewGenerator rg = new ReviewGenerator(reviewContents, book);
+		ReviewGenerator.reviewLoader(reviewContents, book);
 		
 	}
 	
@@ -56,5 +58,11 @@ public class GoodReads {
 			url.setLength(url.length() - 1);
 			return url.toString();
 			}
+
+	@Override
+	public String configureAPICall(String parameters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

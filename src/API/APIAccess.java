@@ -7,7 +7,7 @@ public interface APIAccess {
 	 * 
 	 * @return String -- name of the API that the object accesses
 	 */
-	public String getAPIName();
+//	public String getAPIName();
 	
 	/*
 	 * configures the API call for a given API 
@@ -19,6 +19,6 @@ public interface APIAccess {
 	 * 
 	 * @return String -- base URL for the API Call
 	 */
-	public String getAPIBase();
+//	public String getAPIBase();
 	
 }

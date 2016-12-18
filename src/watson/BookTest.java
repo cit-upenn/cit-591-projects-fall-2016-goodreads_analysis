@@ -16,9 +16,6 @@ public class BookTest {
     ArrayList<Review> reviews = new ArrayList<Review>();
     ArrayList<Review> reviews1 = new ArrayList<Review>();
 
-    
-    
-    
 
     @Test
     public final void testBook() {
@@ -34,18 +31,20 @@ public class BookTest {
 
     @Test
     public final void testAddReview() {
-//        book.addReview(review);
-//        book.addReview(review2);
-//        
-//        reviews.add(review);
-//        reviews.add(review2);
-//        reviews.add(review3);
-//        
-//        reviews1.add(review);
-//        reviews1.add(review2);
-//        
-//        assertEquals("", book.getReviews(), reviews1);
-//        assertNotEquals("", book.getReviews(), reviews);
+        book.addReview(review);
+        book.addReview(review2);
+        
+        reviews.add(review);
+        reviews.add(review2);
+        
+        
+        reviews.add(review3);
+        
+        reviews1.add(review);
+        reviews1.add(review2);
+        
+        assertEquals("", book.getReviews(), reviews1);
+        assertNotEquals("", book.getReviews(), reviews);
         
     }
 

@@ -15,6 +15,9 @@ public class BookStats {
 	private double percentFear;
 	private double percentJoy;
 	private double percentSadness;
+	private int analyzedReviews;
+	private boolean analysisComplete;
+	
 	
 	/**
 	 * This is the constructor method. 
@@ -24,15 +27,24 @@ public class BookStats {
 	public BookStats(Book book){
 		this.book = book;
 		emotions = new double[5];
+		
+		analyzedReviews = 0;
+		analysisComplete = false;
+		
+	}
+	
+	public void getEmotionReport() {
 		ArrayList<Review> reviews = book.getReviews();
-		int count = 0;
+		
+		int analyzedReviews = 0;
 		int angerHit = 0;
 		int disgustHit = 0;
 		int fearHit = 0;
 		int joyHit = 0;
 		int sadnessHit = 0;
+		
 		for(Review review : reviews){
-			count++;
+			analyzedReviews++;
 			if(review.getAnger() > .4) angerHit++;
 			if(review.getDisgust() > .4) disgustHit++;
 			if(review.getFear() > .4) fearHit++;
@@ -40,11 +52,13 @@ public class BookStats {
 			if(review.getSadness() > .4) sadnessHit++;
 			
 		}
-		percentAnger = ((double)angerHit / count) * 100;
-		percentDisgust = ((double)disgustHit / count) * 100;
-		percentFear = ((double)fearHit / count) * 100;
-		percentJoy = ((double)joyHit / count) * 100;
-		percentSadness = ((double)sadnessHit / count) * 100;
+		
+		
+		percentAnger = ((double)angerHit / analyzedReviews) * 100;
+		percentDisgust = ((double)disgustHit / analyzedReviews) * 100;
+		percentFear = ((double)fearHit / analyzedReviews) * 100;
+		percentJoy = ((double)joyHit / analyzedReviews) * 100;
+		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
 		emotions[0] = percentAnger;
 		emotions[1] = percentDisgust;
 		emotions[2] = percentFear;
