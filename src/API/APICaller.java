@@ -8,7 +8,9 @@ public abstract class APICaller implements APIAccess {
 	
 	
 	public APICaller() {
-		
+		APIKey = null;
+		APIName = null;
+		APIURLBase = null;
 	}
 	
 	
