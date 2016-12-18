@@ -26,6 +26,10 @@ public class Review {
 	 */
 	public Review(String text) {
 		this.text = text;
+	}
+	
+	
+	public void setTone() {
 		tone = EmotionAnalyser.toneGenerator(text);
 		ToneParser tp = new ToneParser(tone);
 		anger = tp.returnAnger();
