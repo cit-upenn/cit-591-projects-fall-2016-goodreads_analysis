@@ -1,6 +1,10 @@
 package watson;
 
 import java.util.ArrayList;
+
+import com.google.gson.JsonArray;
+
+
 /**
  * This is the BookStats class.
  * It determines the percentage of each emotion present in a book's reviews.
@@ -9,7 +13,7 @@ import java.util.ArrayList;
  */
 public class BookStats {
 	private Book book;
-	private double[] emotions;
+	private JsonArray JsonEmotions;
 	private double percentAnger;
 	private double percentDisgust;
 	private double percentFear;
@@ -26,7 +30,6 @@ public class BookStats {
 	 */
 	public BookStats(Book book){
 		this.book = book;
-		emotions = new double[5];
 		
 		analyzedReviews = 0;
 		analysisComplete = false;
@@ -61,12 +64,15 @@ public class BookStats {
 		percentFear = ((double)fearHit / analyzedReviews) * 100;
 		percentJoy = ((double)joyHit / analyzedReviews) * 100;
 		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
-		emotions[0] = percentAnger;
-		emotions[1] = percentDisgust;
-		emotions[2] = percentFear;
-		emotions[3] = percentJoy;
-		emotions[4] = percentSadness;
 		
+		JsonArray JsonEmotions = new JsonArray();
+
+		JsonEmotions.add(percentAnger);
+		JsonEmotions.add(percentDisgust);
+		JsonEmotions.add(percentFear);
+		JsonEmotions.add(percentJoy);
+		JsonEmotions.add(percentSadness);
+
 		this.analysisComplete = true;
 	}
 
@@ -108,10 +114,16 @@ public class BookStats {
 	/**
 	 * @return the emotions
 	 */
-	public double[] getEmotions() {
-		return emotions;
+	public JsonArray getEmotions() {
+		return JsonEmotions;
 	}
 	
+	/**
+	 * print the emotions
+	 */
+	public void printEmotions() {
+		System.out.println(this.JsonEmotions);
+	}
 	
 	
 

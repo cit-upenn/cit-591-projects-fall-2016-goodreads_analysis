@@ -54,14 +54,22 @@ public class Servletin extends  HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		 System.out.println("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+		 BookStats values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
+
 		
+		 System.out.println(values.getEmotions().toString()); 
+
 		
 		 RequestDispatcher view = request.getRequestDispatcher("/graph.jsp");
 		 
 		 
-		 JsonArray values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
 		 
-		 request.setAttribute("emotions", values);
+		 request.setAttribute("jsonEmotion", values.getEmotions().toString());
+		 
+		 System.out.println(values.getEmotions().toString()); 
+		 
+		 request.setAttribute("emotions", values);  
 		 
 		 view.forward(request, response);
 		 
