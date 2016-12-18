@@ -14,7 +14,7 @@
 
 <body>
 
-	${emotionJson} 
+	${emotions.getEmotions()} 
 	
 	<form id="submitBook" action="" method="post">
 	  	Enter another book to search!: 
