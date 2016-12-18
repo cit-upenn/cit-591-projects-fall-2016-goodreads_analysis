@@ -18,6 +18,10 @@
   	</form>
 	<br>
 	
+	Showing results for: ${emotions.getBook().getTitle()}
+	<br>
+	By: ${emotions.getBook().getAuthor()}
+	
   <div id="graphs">
   <div id = graphDiv1></div>
   </div>

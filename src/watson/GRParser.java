@@ -29,9 +29,9 @@ public class GRParser {
 		
 		Document now = Jsoup.parse(text.getElementsByTag("reviews_widget").text());
 		
-		Title = text.getElementsByTag("title").text();
+		Title = text.getElementsByTag("title").get(0).text();
 		
-		Author = text.getElementsByTag("name").text();
+		Author = text.getElementsByTag("name").get(0).text();
 		
 		
 		// get Bridge URL
