@@ -45,6 +45,18 @@
   }());
   	</script>
   
+
+    
+    var ctx = createCanvas("graphDiv1");
+    
+    //Creates new bar graph with 5 bars
+    var graph = new BarGraph(ctx);
+    graph.maxValue = 100;
+    graph.margin = 2;
+    graph.colors = ["#007300", "#ff0000", "#007300", "#ff0000", "#007300"];
+    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
+    graph.update([10.25, 33, 0, 50, 50]);
+  }());</script>
 </body>
 </html>
 
