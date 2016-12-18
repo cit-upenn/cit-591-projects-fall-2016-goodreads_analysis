@@ -16,7 +16,7 @@ import API.APICaller;
  * @author carsonstack
  *
  */
-public class GoodReadsAPI extends APICaller {
+public class GoodReadsAPI {
 	private static final String API_BASE = "https://www.goodreads.com/book/title.xml?key=E3ZcRVMjy7JorZ2b4et2fQ&title=";
 	private ArrayList<String> reviewContents;
 	
@@ -30,6 +30,9 @@ public class GoodReadsAPI extends APICaller {
 	 * @throws IOException
 	 */
 	public GoodReadsAPI(Book book, int reviewCount) throws IOException{
+		
+		
+		
 		String url = buildUrl(book.getTitle());
 	
 		Document response = Jsoup.connect(url).get();
@@ -59,10 +62,6 @@ public class GoodReadsAPI extends APICaller {
 			return url.toString();
 			}
 
-	@Override
-	public String configureAPICall(String parameters) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }
