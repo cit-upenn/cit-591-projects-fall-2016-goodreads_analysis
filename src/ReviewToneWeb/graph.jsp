@@ -4,7 +4,7 @@
 </head>
 
 <body>
-	<form id="submitBook" action="GetBookName" method="post">
+	<form id="submitBook" action="" method="post">
 	  	Book Title (ex: Mobey Dick): 
   		<input type="text" name="bookname"><br>
   		Number of Reviews (max 20): <input type="number" min="0" value="5" max="20" name="reviewcount"><br>
