@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class BookStats {
 	private Book book;
+	private double[] emotions;
 	private double percentAnger;
 	private double percentDisgust;
 	private double percentFear;
@@ -22,6 +23,7 @@ public class BookStats {
 	 */
 	public BookStats(Book book){
 		this.book = book;
+		emotions = new double[4];
 		ArrayList<Review> reviews = book.getReviews();
 		int count = 0;
 		int angerHit = 0;
@@ -43,6 +45,11 @@ public class BookStats {
 		percentFear = ((double)fearHit / count) * 100;
 		percentJoy = ((double)joyHit / count) * 100;
 		percentSadness = ((double)sadnessHit / count) * 100;
+		emotions[0] = percentAnger;
+		emotions[1] = percentDisgust;
+		emotions[2] = percentFear;
+		emotions[3] = percentJoy;
+		emotions[4] = percentSadness;
 	}
 
 	/**
@@ -79,6 +86,14 @@ public class BookStats {
 	public double getPercentSadness() {
 		return percentSadness;
 	}
+
+	/**
+	 * @return the emotions
+	 */
+	public double[] getEmotions() {
+		return emotions;
+	}
+	
 	
 	
 
