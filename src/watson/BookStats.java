@@ -122,29 +122,52 @@ public class BookStats {
 		return emotions;
 	}
 	
-	   public void setPercentAnger(double percentAnger) {
+	/**
+	 * sets the percentAnger
+	 * @param percentAnger
+	 */
+	public void setPercentAnger(double percentAnger) {
 	        this.percentAnger = percentAnger;
 	    }
 
-	    public void setPercentDisgust(double percentDisgust) {
+	/**
+	 * sets the percentDisgust
+	 * @param percentDisgust
+	 */
+	public void setPercentDisgust(double percentDisgust) {
 	        this.percentDisgust = percentDisgust;
 	    }
 
-	    public void setPercentFear(double percentFear) {
+	/**
+	 * sets the percentFear
+	 * @param percentFear
+	 */
+	public void setPercentFear(double percentFear) {
 	        this.percentFear = percentFear;
 	    }
 
-	    public void setPercentJoy(double percentJoy) {
+	/**
+	 * sets the percentJoy
+	 * @param percentJoy
+	 */
+	public void setPercentJoy(double percentJoy) {
 	        this.percentJoy = percentJoy;
 	    }
 
-	    public void setPercentSadness(double percentSadness) {
+
+	/**
+	 * sets the percentSadness
+	 * @param percentSadness
+	 */
+	public void setPercentSadness(double percentSadness) {
 	        this.percentSadness = percentSadness;
 	    }
 
-
-
-        public void setEmotions(double[] emotions) {
+	/**
+	 * sets the emotions array
+	 * @param emotions
+	 */
+	public void setEmotions(double[] emotions) {
             this.emotions = emotions;
         }
 	
