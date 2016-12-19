@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class BookStatsTest {
@@ -45,9 +46,9 @@ public class BookStatsTest {
 
         double currentAnger = 0.5;
         double currentDisgust = 0.5;
-        double currentFear = 0.0;
-        double currentJoy = 0.1;
-        double currentSadness = 0.1;
+        double currentFear = 0.6;
+        double currentJoy = 0.6;
+        double currentSadness = 0.6;
         double analyzedReviews = 0;
         double angerHit = 0;
         double disgustHit = 0;
@@ -56,25 +57,31 @@ public class BookStatsTest {
         double sadnessHit = 0;
 
         for (Review review : reviews) {
+            
+            angerHit = 0;
+            disgustHit = 0;
+            fearHit = 0;
+            joyHit = 0;
+            sadnessHit = 0;              
             analyzedReviews++;
-            if (currentAnger > .4) {
+            if (currentAnger > 0.4) {
                 angerHit++; }
-            if (currentDisgust > .4) {
+            if (currentDisgust > 0.4) {
                 disgustHit++; }
-            if (currentFear > .4) {
+            if (currentFear > 0.4) {
                 fearHit++; }
-            if (currentJoy > .4) {
+            if (currentJoy > 0.4) {
                 joyHit++; }
-            if (currentSadness > .4) {
+            if (currentSadness > 0.4) {
                 sadnessHit++; }
         }
 
         assertEquals("Book analyzed reviews", analyzedReviews, 1, 0.00);
         assertEquals("Get anger hit", angerHit, 1, 0.00);
         assertEquals("Get disgust hit", disgustHit, 1, 0.00);
-        assertEquals("Get disgust hit", fearHit, 0, 0.00);
-        assertEquals("Get disgust hit", joyHit, 0, 0.00);
-        assertEquals("Get disgust hit", sadnessHit, 0, 0.00);
+        assertEquals("Get disgust hit", fearHit, 1, 0.00);
+        assertEquals("Get disgust hit", joyHit, 1, 0.00);
+        assertEquals("Get disgust hit", sadnessHit, 1, 0.00);
 
         percentAnger = ((double) angerHit / analyzedReviews) * 100;
         percentDisgust = ((double) disgustHit / analyzedReviews) * 100;
@@ -83,9 +90,9 @@ public class BookStatsTest {
         percentSadness = ((double) sadnessHit / analyzedReviews) * 100;
         assertEquals("Percent Anger", percentAnger, 100, 0);
         assertEquals("Percent Anger", percentDisgust, 100, 0);
-        assertEquals("Percent Anger", percentFear, 0, 0);
-        assertEquals("Percent Anger", percentJoy, 0, 0);
-        assertEquals("Percent Anger", percentSadness, 0, 0);
+        assertEquals("Percent Anger", percentFear, 100, 0);
+        assertEquals("Percent Anger", percentJoy, 100, 0);
+        assertEquals("Percent Anger", percentSadness, 100, 0);
         
         emotions[0] = percentAnger;
         emotions[1] = percentDisgust;
@@ -95,45 +102,124 @@ public class BookStatsTest {
         
         assertEquals("Emotions", emotions[0], 100, 0.00);
         assertEquals("Emotions", emotions[1], 100, 0.00);
-        assertEquals("Emotions", emotions[2], 0, 0.00);
-        assertEquals("Emotions", emotions[3], 0, 0.00);
-        assertEquals("Emotions", emotions[4], 0, 0.00);
+        assertEquals("Emotions", emotions[2], 100, 0.00);
+        assertEquals("Emotions", emotions[3], 100, 0.00);
+        assertEquals("Emotions", emotions[4], 100, 0.00);
 
     }
 
     @Test
     public final void testGetPercentAnger() {
         Book book = new Book("");
-        Review review1 = new Review("abc");
-        double currentAnger = 0.5;
+        BookStats stats = new BookStats(book);
+        
+        double angerHit = 1;
+        double analyzedReviews = 2;
 
-        double[] emotions = { 1, 2, 3, 4, 5 };
+        stats.setPercentAnger(((double) angerHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentAnger(), 50, 0.00);
 
     }
 
     @Test
     public final void testGetPercentDisgust() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double disgustHit = 1;
+        double analyzedReviews = 2;
+
+        stats.setPercentDisgust(((double) disgustHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentDisgust(), 50, 0.00);
+
     }
 
     @Test
     public final void testGetPercentFear() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double fearHit = 1;
+        double analyzedReviews = 5;
+
+        stats.setPercentFear(((double) fearHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentFear(), 20, 0.00);
+        
     }
 
     @Test
     public final void testGetPercentJoy() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double joyHit = 1;
+        double analyzedReviews = 2;
+
+        stats.setPercentJoy(((double) joyHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentJoy(), 50, 0.00);
     }
 
     @Test
     public final void testGetPercentSadness() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        
+        double sadnessHit = 1;
+        double analyzedReviews = 10;
+
+        stats.setPercentSadness(((double) sadnessHit / analyzedReviews) * 100);
+
+        assertEquals("Emotions", stats.getPercentSadness(), 10, 0.00);
     }
 
     @Test
     public final void testGetEmotions() {
-        fail("Not yet implemented"); // TODO
+        Book book = new Book("");
+        BookStats stats = new BookStats(book);
+        double[] emotions = new double[5];
+        stats.setEmotions(emotions);
+        emotions[0] = percentAnger;
+        emotions[1] = percentDisgust;
+        emotions[2] = percentFear;
+        emotions[3] = percentJoy;
+        emotions[4] = percentSadness;
+        
+        double[] emotions2 = {1, 2, 3, 4, 5};        
+      
+
+        Assert.assertArrayEquals(stats.getEmotions(), emotions2, 0.00);
+        
+    }
+    
+    @Test
+    public final void  testGetBook() {
+        Book book = new Book("this book");
+        Review review = new Review("This review");
+        book.addReview(review);
+        String title = "this book";
+        
+        book.setTitle(title);
+        book.setAuthor("Herman Melville");
+        
+        assertEquals("This book", book.getTitle(), "this book");     
+        assertEquals("This book", book.getAuthor(), "Herman Melville");         
+                
+        ArrayList<String> arrayList = new ArrayList<String>();
+        arrayList.add("This book is good");
+        arrayList.add("This book is really good");
+        
+        Review review1 = new Review("This book is good");
+        Review review2 = new Review("This book is really good");
+        
+        book.addReview(review1);
+        book.addReview(review2);
+        
+        assertEquals(book.getReviews().get(1).getText(), "This book is good");
+                
     }
 
 }

@@ -35,7 +35,11 @@ public class BookStats {
 		
 	}
 	
-	public void getFullEmotionReport() {
+
+	/**
+	 * This method calculates the percent of emotions present in reviews for a given book.
+	 */
+    public void getFullEmotionReport() {
 		ArrayList<Review> reviews = book.getReviews();
 		
 		int analyzedReviews = 0;
@@ -56,11 +60,15 @@ public class BookStats {
 		}
 		
 		
-		percentAnger = ((double)angerHit / analyzedReviews) * 100;
-		percentDisgust = ((double)disgustHit / analyzedReviews) * 100;
-		percentFear = ((double)fearHit / analyzedReviews) * 100;
-		percentJoy = ((double)joyHit / analyzedReviews) * 100;
-		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
+		setPercentAnger(( (double)angerHit / analyzedReviews) * 100);
+		setPercentDisgust(((double)disgustHit / analyzedReviews) * 100);
+		setPercentFear(((double)fearHit / analyzedReviews) * 100);
+		setPercentJoy(((double)joyHit / analyzedReviews) * 100);
+		setPercentSadness(((double)sadnessHit / analyzedReviews) * 100);
+//		percentDisgust = ((double)disgustHit / analyzedReviews) * 100;
+//		percentFear = ((double)fearHit / analyzedReviews) * 100;
+//		percentJoy = ((double)joyHit / analyzedReviews) * 100;
+//		percentSadness = ((double)sadnessHit / analyzedReviews) * 100;
 		
 		
 		emotions[0] = percentAnger;
@@ -114,6 +122,54 @@ public class BookStats {
 		return emotions;
 	}
 	
+	/**
+	 * sets the percentAnger
+	 * @param percentAnger
+	 */
+	public void setPercentAnger(double percentAnger) {
+	        this.percentAnger = percentAnger;
+	    }
+
+	/**
+	 * sets the percentDisgust
+	 * @param percentDisgust
+	 */
+	public void setPercentDisgust(double percentDisgust) {
+	        this.percentDisgust = percentDisgust;
+	    }
+
+	/**
+	 * sets the percentFear
+	 * @param percentFear
+	 */
+	public void setPercentFear(double percentFear) {
+	        this.percentFear = percentFear;
+	    }
+
+	/**
+	 * sets the percentJoy
+	 * @param percentJoy
+	 */
+	public void setPercentJoy(double percentJoy) {
+	        this.percentJoy = percentJoy;
+	    }
+
+
+	/**
+	 * sets the percentSadness
+	 * @param percentSadness
+	 */
+	public void setPercentSadness(double percentSadness) {
+	        this.percentSadness = percentSadness;
+	    }
+
+	/**
+	 * sets the emotions array
+	 * @param emotions
+	 */
+	public void setEmotions(double[] emotions) {
+            this.emotions = emotions;
+        }
 	
 	/*
 	 * getter for the book object
@@ -123,6 +179,8 @@ public class BookStats {
 	public Book getBook() {
 		return this.book;
 	}
+	
+
 	
 	
 }
