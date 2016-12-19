@@ -39,12 +39,13 @@ public class ReviewGeneratorTest {
 //        assertTrue(book.getReviews().equals(list2));
 
         assertEquals(book.getReviews().size(), book2.getReviews().size());
-        for (int i = 0; i < book.getReviews().size(); i++) 
-            assertEquals(book.getReviews().get(i).toString(), book2.getReviews().get(i).toString());
+        
+        for (int i = 0; i < book.getReviews().size(); i++) {
+            assertEquals(book.getReviews().get(i).getText(), book2.getReviews().get(i).getText());
+        }
         
 //        assertTrue(book.getReviews().equals(book2.getReviews()));
    
-        
-    }
+    }  
 
 }

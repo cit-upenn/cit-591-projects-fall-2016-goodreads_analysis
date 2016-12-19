@@ -78,5 +78,36 @@ public class BookTest {
 
 
     }
+    
+//    @Test
+//    public final void testSetTitle() {
+//        String title = "Moby Dick";
+//        book.setTitle(title);
+////        book.setTitle(title);
+//        Assert.assertEquals("Moby Dick", book.setTitle(title));
+//        
+//       
+//    }
+//    
+//    /**
+//     * setter for the author
+//     */
+//    public void setAuthor(String name) {
+//        this.author = name;
+//    }
+//    
+//    /**
+//     * getter for the author
+//     * 
+//     * @return author name
+//     */
+    
+    @Test
+    public final void testGetAuthor() {
+        book.setAuthor("Herman Melville");
+        assertEquals("Test get author", book.getAuthor(), "Herman Melville");
+        
+    }
+ 
 
 }
