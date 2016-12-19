@@ -33,7 +33,6 @@ public class GetBookName extends HttpServlet {
 		 
 		 // display
 		 view.forward(request, response);
-
 	}
 
 	
@@ -49,9 +48,6 @@ public class GetBookName extends HttpServlet {
 		
 		//go forward to the second servlet
 		getServletContext().getRequestDispatcher("/servlet").forward(request,response);
-		
-		
-		
 		
 	}
 

@@ -26,25 +26,8 @@ public class Servletin extends  HttpServlet {
 			  HttpServletResponse response)
 			  throws ServletException, java.io.IOException {
 		 
-		 
-		 response.setContentType("text/html");
-		 java.io.PrintWriter out = response.getWriter();
-		 // output your page here
-		 out.println("<html>");
-		 out.println("<head>");
-		 out.println("<title>Servlet</title>");
-		 
-		 int x = 6;
-		 out.println("</head>");
-		 out.println("<body>");
-		 out.println("Hello, Java Servlets" + x);
-		 out.println("</body>");
-		 out.println("</html>");
-		 out.close();
-		 
-		 
 	 }
-		 
+
 
 	 
 
@@ -75,6 +58,7 @@ public class Servletin extends  HttpServlet {
 		 // add the BookStats object to be displayed by 
 		request.setAttribute("emotions", values);
 		
+		//set the results string as appropriate
 		if (values != null) {
 			request.setAttribute("emotionJson", Arrays.toString(values.getEmotions()));
 		} else {
@@ -82,7 +66,7 @@ public class Servletin extends  HttpServlet {
 		}
 
 		   
-		 
+		 // display results
 		 view.forward(request, response);
 		 
 		 

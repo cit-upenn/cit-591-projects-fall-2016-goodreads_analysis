@@ -21,14 +21,16 @@
 	${errorMessage}
 	
 	<c:if test="${not empty emotions}">
-	<br>
-	Showing results for: ${emotions.getBook().getTitle()}
-	<br>
-	By: ${emotions.getBook().getAuthor()}
-	
-  <div id="graphs">
-  <div id = graphDiv1></div>
-  </div>
+		<br>
+		Showing results for: ${emotions.getBook().getTitle()}
+		<br>
+		By: ${emotions.getBook().getAuthor()}
+	  <div id="graphs">
+	  	<div 
+	  		id = graphDiv1>
+	  	</div>
+	  </div>
+	  The percent of reviews for ${emotions.getBook().getTitle()} containing each emotion
   </c:if>
   <script>(function () {
   
@@ -51,8 +53,6 @@
 	    graph.margin = 2;
 	    graph.colors = ["#007300", "#ff0000", "#007300", "#ff0000", "#007300"];
 	    graph.xAxisLabelArr = ["Anger", "Disgust", "Fear", "Joy", "Sadness"];
-
-  
 	    graph.update(${emotionJson});
 	    
 	    
