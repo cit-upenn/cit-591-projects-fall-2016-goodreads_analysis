@@ -36,7 +36,9 @@ public class BookStats {
 	}
 	
 
-
+	/**
+	 * This method calculates the percent of emotions present in reviews for a given book.
+	 */
     public void getFullEmotionReport() {
 		ArrayList<Review> reviews = book.getReviews();
 		
