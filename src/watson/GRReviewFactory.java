@@ -10,7 +10,7 @@ public class GRReviewFactory {
 	
 	
 	
-	public static BookStats getReviews(String bookName, int reviewCount) throws IOException {
+	public static BookStats getReviews(String bookName, int reviewCount) throws IOException, BadAPICall {
 		
 		//create book
 		Book book = new Book(bookName);

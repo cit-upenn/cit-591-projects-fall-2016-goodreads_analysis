@@ -53,19 +53,35 @@ public class Servletin extends  HttpServlet {
 
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		 BookStats values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
-		 System.out.println(Arrays.toString(values.getEmotions()));
-		
+		 // initialize book report object
+		 BookStats values = null;
 		 
-		
+		 // intitialize erreor report
+		 String Error = "";
+		 
+		 // try to get the reviews from goodreads. If the book does not exist on Goodreads or is not 
+		 try {
+		 	values = GRReviewFactory.getReviews((String) request.getAttribute("var"), Integer.parseInt((String) request.getAttribute("reviewCount")));
+		 } catch (BadAPICall i) {
+			 Error = i.getMessage();
+		 } catch(IOException e) {
+			 Error = "There was an error with the servlet";
+		 } 
+		 
+		 // get the page template the results or error
 		 RequestDispatcher view = request.getRequestDispatcher("/graph.jsp");
+		 request.setAttribute("errorMessage", Error);
 		 
-		 request.setAttribute("emotionJson", Arrays.toString(values.getEmotions()));
-		 
-		 
-		 
-		 request.setAttribute("emotions", values);  
+		 // add the BookStats object to be displayed by 
+		request.setAttribute("emotions", values);
+		
+		if (values != null) {
+			request.setAttribute("emotionJson", Arrays.toString(values.getEmotions()));
+		} else {
+			request.setAttribute("emotionJson", "");
+		}
+
+		   
 		 
 		 view.forward(request, response);
 		 

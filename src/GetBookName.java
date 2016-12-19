@@ -21,18 +21,17 @@ public class GetBookName extends HttpServlet {
      */
     public GetBookName() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
+		 // get the requested resource
 		 RequestDispatcher view = request.getRequestDispatcher("/postBookName.html");
-//		 RequestDispatcher view = request.getRequestDispatcher("/servlet");
-
+		 
+		 // display
 		 view.forward(request, response);
 
 	}
@@ -54,7 +53,6 @@ public class GetBookName extends HttpServlet {
 		
 		
 		
-//		response.sendRedirect("http://localhost:8080/watson/servlet");
 	}
 
 }

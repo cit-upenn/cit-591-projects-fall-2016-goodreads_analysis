@@ -25,9 +25,13 @@ public class GRParser {
 	 * @param reviewCount How many reviews to extract
 	 * @throws IOException
 	 */
-	public GRParser(Document text, int reviewCount) throws IOException{
+	public GRParser(Document text, int reviewCount) throws IOException, BadAPICall{
 		
 		Document now = Jsoup.parse(text.getElementsByTag("reviews_widget").text());
+		
+		if (now == null) {
+			throw new BadAPICall();
+		}
 		
 		Title = text.getElementsByTag("title").get(0).text();
 		

@@ -27,8 +27,9 @@ public class GoodReadsAPI {
 	 * @param book 
 	 * @param reviewCount the number of reviews to consider
 	 * @throws IOException
+	 * @throws BadAPICall 
 	 */
-	public GoodReadsAPI(Book book, int reviewCount) throws IOException{
+	public GoodReadsAPI(Book book, int reviewCount) throws IOException, BadAPICall{
 		
 		
 		

@@ -1,4 +1,5 @@
 <%@ page import="watson.BookStats" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
 
@@ -17,7 +18,10 @@
   		<input id="submitButton" type=submit>
   	</form>
 	<br>
+	${errorMessage}
 	
+	<c:if test="${not empty emotions}">
+	<br>
 	Showing results for: ${emotions.getBook().getTitle()}
 	<br>
 	By: ${emotions.getBook().getAuthor()}
@@ -25,8 +29,8 @@
   <div id="graphs">
   <div id = graphDiv1></div>
   </div>
+  </c:if>
   <script>(function () {
-	 
   
     function createCanvas(divName) {
       
